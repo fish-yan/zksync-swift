@@ -41,9 +41,12 @@ class NetworkSelectionTableViewController: UITableViewController {
         if chainId != .mainnet {
             message = "\(message)\nChain ID: \(chainId.id)."
         }
+        
 
-        guard let signature = try? ethSigner.sign(message: message.data(using: .utf8)!),
-              let zkSigner = try? ZkSigner(signature: signature) else {
+        guard let signature = try? ethSigner.sign(message: message.data(using: .utf8)!) else {
+            fatalError()
+        }
+        guard let zkSigner = try? ZkSigner(signature: signature) else {
             fatalError()
         }
 

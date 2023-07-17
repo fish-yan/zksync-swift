@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import PromiseKit
+import Web3Core
 import web3swift
 
 enum DefaultWalletError: Error {
@@ -119,22 +119,6 @@ public class DefaultWallet<A: ChangePubKeyVariant, S: EthSigner>: Wallet {
             throw DefaultWalletError.internalError
         }
         return try callResult.get()
-    }
-
-    public func createEthereumProvider(web3: web3) throws -> EthereumProvider {
-        let contractAddress = try self.getContractAddressSync()
-
-        guard let address = EthereumAddress(contractAddress.mainContract) else {
-            throw DefaultWalletError.internalError
-        }
-
-        let zkSync = ZkSync(web3: web3,
-                            contractAddress: address,
-                            walletAddress: ethSigner.ethereumAddress)
-        return EthereumProvider(web3: web3,
-                                keystore: ethSigner.keystore,
-                                ethereumAddress: ethSigner.ethereumAddress,
-                                zkSync: zkSync)
     }
 
     public func enable2FA(completion: @escaping (ZKSyncResult<Toggle2FAInfo>) -> Void) throws {

@@ -7,6 +7,7 @@
 
 import Foundation
 import BigInt
+import Web3Core
 import web3swift
 import PromiseKit
 
@@ -95,8 +96,6 @@ public protocol Wallet {
                           timeRange: TimeRange) throws -> Order
 
     var isSigningKeySet: Bool { get }
-
-    func createEthereumProvider(web3: web3) throws -> EthereumProvider
 
     func enable2FA(completion: @escaping (ZKSyncResult<Toggle2FAInfo>) -> Void) throws
 

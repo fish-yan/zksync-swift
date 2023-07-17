@@ -1,29 +1,29 @@
 PODS:
-  - Alamofire (5.6.2)
+  - Alamofire (5.7.1)
   - BigInt (5.2.0)
-  - CryptoSwift (1.4.3)
-  - PromiseKit (6.15.3):
-    - PromiseKit/CorePromise (= 6.15.3)
-    - PromiseKit/Foundation (= 6.15.3)
-    - PromiseKit/UIKit (= 6.15.3)
-  - PromiseKit/CorePromise (6.15.3)
-  - PromiseKit/Foundation (6.15.3):
+  - CryptoSwift (1.5.1)
+  - PromiseKit (8.0.0):
+    - PromiseKit/CorePromise (= 8.0.0)
+    - PromiseKit/Foundation (= 8.0.0)
+    - PromiseKit/UIKit (= 8.0.0)
+  - PromiseKit/CorePromise (8.0.0)
+  - PromiseKit/Foundation (8.0.0):
     - PromiseKit/CorePromise
-  - PromiseKit/UIKit (6.15.3):
+  - PromiseKit/UIKit (8.0.0):
     - PromiseKit/CorePromise
   - secp256k1.c (0.1.2)
   - Starscream (4.0.4)
-  - web3swift (2.5.1):
+  - Web3Core (3.1.2):
     - BigInt (~> 5.2.0)
-    - CryptoSwift (~> 1.4.2)
-    - PromiseKit (~> 6.15.3)
+    - CryptoSwift (~> 1.5.1)
     - secp256k1.c (~> 0.1)
+  - web3swift (3.1.2):
     - Starscream (~> 4.0.4)
+    - Web3Core (~> 3.1.2)
   - ZKSync (0.0.3):
     - Alamofire (~> 5.0)
-    - web3swift (~> 2.5.0)
-    - ZKSyncCrypto (= 0.0.9-spm)
-  - ZKSyncCrypto (0.0.9-spm)
+    - PromiseKit
+    - web3swift
 
 DEPENDENCIES:
   - ZKSync (from `../../`)
@@ -36,24 +36,24 @@ SPEC REPOS:
     - PromiseKit
     - secp256k1.c
     - Starscream
+    - Web3Core
     - web3swift
-    - ZKSyncCrypto
 
 EXTERNAL SOURCES:
   ZKSync:
     :path: "../../"
 
 SPEC CHECKSUMS:
-  Alamofire: d368e1ff8a298e6dde360e35a3e68e6c610e7204
+  Alamofire: 0123a34370cb170936ae79a8df46cc62b2edeb88
   BigInt: f668a80089607f521586bbe29513d708491ef2f7
-  CryptoSwift: a0799ee936271bd2253a006f1e4523df21845000
-  PromiseKit: 3b2b6995e51a954c46dbc550ce3da44fbfb563c5
+  CryptoSwift: c4f2debceb38bf44c80659afe009f71e23e4a082
+  PromiseKit: 7039707ba8764b6ce98501debce2489561b038a5
   secp256k1.c: db47b726585d80f027423682eb369729e61b3b20
   Starscream: 5178aed56b316f13fa3bc55694e583d35dd414d9
-  web3swift: 1071b71d9ac73147464110404c67901e642f4247
-  ZKSync: 51baca54847c46220571efdf9fa80099372117ff
-  ZKSyncCrypto: ff0662eb0cff69ab3e40564a45a07cbcafe1ccf0
+  Web3Core: 050eb18f0434ac16c42eb7b2270fbce325935128
+  web3swift: 8496f6615c3a1f86e7c9e5fe16c5422ef181527b
+  ZKSync: 64c3b5ac8a406150cfe305f2fdafe256dcbfbc9d
 
-PODFILE CHECKSUM: 19f2bc7b77d611151be6a9850baac7dbb61b1e85
+PODFILE CHECKSUM: 77470991fbaab412b1468fd8ba6018fa43dceb34
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.12.1

@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import Web3Core
 import web3swift
 import BigInt
 
@@ -27,14 +27,14 @@ public class DefaultEthSigner: EthSigner {
 
     public init(privateKey: String) throws {
         let privatKeyData = Data(hex: privateKey)
-        guard let keystore = try EthereumKeystoreV3(privateKey: privatKeyData) else {
+        guard let keystore = try EthereumKeystoreV3(privateKey: privatKeyData, password: "web3swift") else {
             throw EthSignerError.invalidKey
         }
         self.keystore = keystore
     }
 
     public init(mnemonic: String) throws {
-        guard let keystore = try BIP32Keystore(mnemonics: mnemonic) else {
+        guard let keystore = try BIP32Keystore(mnemonics: mnemonic, password: "web3swift") else {
             throw EthSignerError.invalidMnemonic
         }
         self.keystore = keystore
@@ -236,7 +236,7 @@ public class DefaultEthSigner: EthSigner {
 
     public func verifySignature(_ signature: EthSignature, message: Data) throws -> Bool {
         let signatureData = Data(hex: signature.signature)
-        guard let hash = Web3Utils.hashPersonalMessage(message) else {
+        guard let hash = Utilities.hashPersonalMessage(message) else {
             throw EthSignerError.invalidMessage
         }
 
@@ -246,7 +246,7 @@ public class DefaultEthSigner: EthSigner {
                                                                account: ethereumAddress)
         defer { Data.zero(&privateKey) }
 
-        let keystorePublicKeyData = Web3Utils.privateToPublic(privateKey)
+        let keystorePublicKeyData = Utilities.privateToPublic(privateKey)
 
         return publicKeyData == keystorePublicKeyData
     }

@@ -12,14 +12,15 @@ zkSync is a scaling and privacy engine for Ethereum. Its current functionality s
     
     s.author           = { "The Matter Labs team" => "hello@matterlabs.dev" }
   
-    s.ios.deployment_target = "11.0"
-    s.swift_version    = '5.0'
+    s.ios.deployment_target = "13.0"
+    s.swift_version    = '5.5'
   
     s.source           = { :git => "https://github.com/zksync-sdk/zksync-swift.git", :tag => "#{s.version}" }
     
-    s.dependency 'ZKSyncCrypto', '0.0.9-spm'
     s.dependency 'Alamofire', '~> 5.0'
-    s.dependency 'web3swift', '~> 2.5.0'
-
+    s.dependency 'web3swift'
+    s.dependency 'PromiseKit'
+    
+    s.vendored_frameworks = "Dependencies/ZKSyncCrypto.xcframework"
     s.source_files = 'Sources/ZKSync/**/*'
 end

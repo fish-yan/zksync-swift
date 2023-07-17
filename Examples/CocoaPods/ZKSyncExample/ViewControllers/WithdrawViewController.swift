@@ -8,6 +8,7 @@
 
 import UIKit
 import ZKSync
+import Web3Core
 import web3swift
 import PromiseKit
 
@@ -21,7 +22,7 @@ class WithdrawViewController: UIViewController, WalletConsumer {
         amountTextField.resignFirstResponder()
 
         guard let amountText = amountTextField.text,
-              let amount = Web3.Utils.parseToBigUInt(amountText, units: .eth),
+              let amount = Utilities.parseToBigUInt(amountText, units: .ether),
               amount > 0 else {
             self.showAmountError()
             return
