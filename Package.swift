@@ -16,16 +16,13 @@ let package = Package(
             ]),
     ],
     dependencies: [
-        .package(
-            name: "Web3swift",
-            url: "https://github.com/skywinder/web3swift.git",
-            from: "2.5.0"
-        ),
+        .package(url: "https://github.com/fish-yan/web3swift.git", .branch("userop")),
         .package(
             name: "Alamofire",
             url: "https://github.com/Alamofire/Alamofire.git",
             from: "5.4.3"
-        )
+        ),
+        .package(url: "https://github.com/mxcl/PromiseKit.git", .upToNextMajor(from: "8.2.0")),
     ],
     targets: [
         .target(
@@ -33,7 +30,8 @@ let package = Package(
             dependencies: [
                 "ZKSyncCrypto",
                 .product(name: "web3swift", package: "Web3swift"),
-                "Alamofire"
+                "Alamofire",
+                "PromiseKit"
             ],
             path: "Sources/ZKSync"),
         .binaryTarget(
