@@ -16,7 +16,7 @@ let package = Package(
             ]),
     ],
     dependencies: [
-        .package(url: "https://github.com/web3swift-team/web3swift.git", .upToNextMajor(from: "3.3.0")),
+        .package(url: "https://github.com/fish-yan/web3swift.git", branch: "onto"),
         .package(url: "https://github.com/Alamofire/Alamofire.git", from: "5.6.3"),
         .package(url: "https://github.com/mxcl/PromiseKit.git", .upToNextMajor(from: "8.2.0")),
     ],
