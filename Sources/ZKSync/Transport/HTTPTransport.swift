@@ -80,7 +80,7 @@ public class HTTPTransport: Transport {
     }
 }
 
-class JRPCDecoder: DataDecoder {
+final class JRPCDecoder: DataDecoder {
 
     func decode<D>(_ type: D.Type, from data: Data) throws -> D where D: Decodable {
         NSLog("Response data: \(D.Type.self) \(String(decoding: data, as: UTF8.self)) ")

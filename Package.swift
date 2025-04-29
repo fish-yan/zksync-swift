@@ -1,4 +1,4 @@
-// swift-tools-version:5.3
+// swift-tools-version:5.9
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -16,12 +16,8 @@ let package = Package(
             ]),
     ],
     dependencies: [
-        .package(url: "https://github.com/fish-yan/web3swift.git", .branch("userop")),
-        .package(
-            name: "Alamofire",
-            url: "https://github.com/Alamofire/Alamofire.git",
-            from: "5.4.3"
-        ),
+        .package(url: "https://github.com/web3swift-team/web3swift.git", .upToNextMajor(from: "3.3.0")),
+        .package(url: "https://github.com/Alamofire/Alamofire.git", from: "5.6.3"),
         .package(url: "https://github.com/mxcl/PromiseKit.git", .upToNextMajor(from: "8.2.0")),
     ],
     targets: [
@@ -29,7 +25,7 @@ let package = Package(
             name: "ZKSync",
             dependencies: [
                 "ZKSyncCrypto",
-                .product(name: "web3swift", package: "Web3swift"),
+                "web3swift",
                 "Alamofire",
                 "PromiseKit"
             ],
